@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import UserSignIn from "./UserSignIn";
+import UserSignUp from "./UserSignUp";
+import HomePage from "./HomePage";
+import ListOfSelectedMovies from "./ListOfSelectedMovies";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <div className="container mt-5">
+        <Routes>
+          <Route path="/" element={<UserSignIn />} />
+          <Route path="/userSignIn" element={<UserSignIn />} />
+          <Route path="/userSignUp" element={<UserSignUp />} />
+          <Route path="/homepage" element={<HomePage />} />
+          <Route path="/listOfSelectedMovies" element={<ListOfSelectedMovies />} />
+        </Routes>
+      </div>
+    </HashRouter>
   );
-}
+};
 
 export default App;
